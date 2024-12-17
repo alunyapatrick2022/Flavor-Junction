@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Flavor Junction</title>
+
+    
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/a076d05399.css">
+
+    
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        
+        nav.navbar {
+            background: linear-gradient(90deg, #0A7075, #0C969C);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar .navbar-brand {
+            color: #ffffff !important;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .navbar .navbar-nav .nav-item .nav-link {
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .navbar-nav .nav-item .nav-link:hover {
+            color: #f39c12;
+        }
+
+        .navbar .btn-warning {
+            background-color: #f39c12;
+            color: #ffffff;
+            border: none;
+        }
+
+        .navbar .btn-warning:hover {
+            background-color: #e67e22;
+            color: #ffffff;
+        }
+
+        
+        .hero-section {
+            background: url('images/img2.png') no-repeat center center/cover;
+            height: 50vh;
+            position: relative;
+            color: #fff;
+        }
+
+        .hero-section .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            transform: translateY(-50%);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        
+        .about-content {
+            padding: 50px 20px;
+        }
+
+        .about-content h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        
+        footer {
+            background-color: #333;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="index.html">Flavor Junction</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Book</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-warning" href="#">Order Online</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>About Us</h1>
+            <p>Discover the passion behind Flavor Junction.</p>
+        </div>
+    </section>
+
+    
+    <section class="about-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Our Story</h2>
+                    <p>
+                        At Flavor Junction, we believe in bringing people together with exquisite food and a cozy ambiance.
+                        From our humble beginnings to becoming a culinary destination, our focus has always been on
+                        delivering quality, taste, and a memorable dining experience.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <img src="./assets/images/img3.jpg" class="img-fluid rounded" alt="Our Story">
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-md-6 order-md-2">
+                    <h2>Our Vision</h2>
+                    <p>
+                        We strive to create a space where every meal is a celebration of flavor and joy. Our chefs use
+                        the freshest ingredients and innovative techniques to craft dishes that tantalize your taste buds
+                        and warm your heart.
+                    </p>
+                </div>
+                <div class="col-md-6 order-md-1">
+                    <img src="./assets/images/img2.png" class="img-fluid rounded" alt="Vision">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <p>&copy; 2024 Flavor Junction. All Rights Reserved.</p>
+    </footer>
+
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

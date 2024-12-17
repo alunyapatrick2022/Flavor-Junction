@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Flavor Junction</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            color: #0a0a0a;
+            overflow: hidden;
+        }
+
+        .carousel-inner .carousel-item {
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+            color: #ffffff;
+            text-align: right;
+            max-width: 400px;
+            z-index: 10;
+        }
+
+        .hero-content h1.display-4 {
+            font-size: 3rem;
+        }
+
+        .hero-content p.lead {
+            font-size: 1.2rem;
+        }
+
+        .btn-warning {
+            padding: 10px 20px;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            border-radius: 5px;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(11, 237, 68, 0.6);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+        }
+
+        .carousel-control-prev {
+            left: 20px;
+        }
+
+        .carousel-control-next {
+            right: 20px;
+        }
+
+        .carousel-control-prev:hover,
+        .carousel-control-next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .carousel-control-prev .carousel-control-prev-icon,
+        .carousel-control-next .carousel-control-next-icon {
+            background-size: 100%;
+            width: 20px;
+            height: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #ffffff;
+            padding: 20px 0;
+        }
+
+        footer h5 {
+            color: #f39c12;
+        }
+
+        footer .social-icons a {
+            margin: 0 10px;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        footer .social-icons a:hover {
+            color: #f39c12;
+        }
+
+        nav.navbar {
+            background: linear-gradient(90deg, #0A7075, #0C969C);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar .navbar-brand {
+            color: #ffffff !important;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .navbar .navbar-nav .nav-item .nav-link {
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .navbar-nav .nav-item .nav-link:hover {
+            color: #f39c12;
+        }
+
+        .navbar .btn-warning {
+            background-color: #f39c12;
+            color: #ffffff;
+            border: none;
+        }
+
+        .navbar .btn-warning:hover {
+            background-color: #e67e22;
+            color: #ffffff;
+        }
+
+        .dropdown-menu {
+            background-color: #0C969C;
+        }
+
+        .dropdown-menu .dropdown-item {
+            color: #ffffff;
+        }
+
+        .dropdown-menu .dropdown-item:hover {
+            background-color: #f39c12;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Flavor Junction</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="menuDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Menu</a>
+                    <div class="dropdown-menu" aria-labelledby="menuDropdown">
+                        <a class="dropdown-item" href="#">Appetizers</a>
+                        <a class="dropdown-item" href="#">Main Courses</a>
+                        <a class="dropdown-item" href="#">Desserts</a>
+                        <a class="dropdown-item" href="#">Beverages</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Vegan Options</a>
+                        <a class="dropdown-item" href="#">Seasonal Specials</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="./about.html" id="aboutDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">About</a>
+                    <div class="dropdown-menu" aria-labelledby="aboutDropdown">
+                        <a class="dropdown-item" href="#">Our Story</a>
+                        <a class="dropdown-item" href="#">Team</a>
+                        <a class="dropdown-item" href="#">Careers</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Vision & Mission</a>
+                        <a class="dropdown-item" href="#">Community Engagement</a>
+                        <a class="dropdown-item" href="#">Awards & Achievements</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="bookDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Book</a>
+                    <div class="dropdown-menu" aria-labelledby="bookDropdown">
+                        <a class="dropdown-item" href="book-table.html">Book a Table</a>
+                        <a class="dropdown-item" href="reserve-room.html">Reserve a Room</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-warning" href="#">Order Online</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero" style="background-color: #0a0a0a;">
+        <div id="menuCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="background-image: url('images/img1.jpg');"></div>
+                <div class="carousel-item" style="background-image: url('images/img2.png');"></div>
+                <div class="carousel-item" style="background-image: url('images/img3.jpg');"></div>
+            </div>
+            <a class="carousel-control-prev" href="#menuCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#menuCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <div class="hero-content">
+            <h1 class="display-4">Flavor Junction</h1>
+            <p class="lead">Things are simple yet essential, offering comfort and wisdom in the face of challenges.</p>
+            <a href="#" class="btn btn-warning btn-lg mt-3">Order Now</a>
+        </div>
+    </header>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Address</h5>
+                    <p>A108 Adam Street<br>Nairobi, 0100</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact</h5>
+                    <p>Phone: +254 717xxxxx6<br>Email: chuxxxxxxxxxxxy@gmail.com</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Opening Hours</h5>
+                    <p>Mon-Sat: 11AM - 11PM<br>Sunday: Closed</p>
+                </div>
+            </div>
+            <div class="social-icons mt-3 text-center">
+                <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white"><i class="fab fa-pinterest"></i></a>
+            </div>
+            <p class="mt-3 text-center">© 2024 All Rights Reserved by Flavor Junction</p>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
