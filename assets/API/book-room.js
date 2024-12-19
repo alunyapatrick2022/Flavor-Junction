@@ -1,20 +1,33 @@
 document.getElementById('room-form').addEventListener('submit', function(event) {
     event.preventDefault();
-    const formData = new FormData(this);
-    fetch('http://localhost:3000/api/book-table', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('Room reservation confirmed!');
+    
+    try {
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone')?.value || '',
+            check_in_date: document.getElementById('check-in-date').value,
+            check_out_date: document.getElementById('check-out-date').value,
+            room_type: document.getElementById('room-type').value
+        };
+
+        const response = fetch(`http://localhost:3000/api/room-booking`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+
+        const data =  response.json();
+
+        if (response.ok) {
+            window.location.href = 'success.html';
         } else {
-            alert('Error: ' + data.message);
+            throw new Error(data.message || 'Booking failed');
         }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('An error occurred while submitting the form.');
-    });
+    } catch (error) {
+        console.error('Booking error:', error);
+        // Handle error display to user
+    }
 });
