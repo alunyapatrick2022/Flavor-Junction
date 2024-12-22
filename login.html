@@ -11,8 +11,16 @@
         <nav>
             <div class="logo">Flavor-Junction-FE</div>
             <ul>
-                <li>
-                    <a href="./1home.html">Home</a>
+                <li><a href="index.html">Home</a></li>
+                <!-- Display Profile icon if user is logged in -->
+                <li id="profile-icon-container" style="display: none;">
+                    <a href="profile.html" id="profile-link">
+                        <img src="" alt="Profile Icon" id="profile-icon" style="width: 30px; height: 30px; border-radius: 50%;"/>
+                    </a>
+                </li>
+                <!-- Display login link only if not logged in -->
+                <li id="login-link-container">
+                    <a href="login.html" id="login-link">Login</a>
                 </li>
             </ul>
         </nav>
@@ -31,32 +39,7 @@
                         <label for="password">Password</label>
                         <input type="password" id="password" required>
                         <div class="password-toggle"></div>
-                            <i class="fas fa-eye-slash" id="togglePassword"></i>
-                        </div>
-                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-                        <style>
-                            .password-toggle {
-                                position: absolute;
-                                right: 10px;
-                                top: 55%;
-                                transform: translateY(-50%);
-                                cursor: pointer;
-                                z-index: 1;
-                            }
-                            
-                            .password-toggle i {
-                                color: #666;
-                            }
-                        </style>
-                        <script>
-                            document.getElementById('togglePassword').addEventListener('click', function() {
-                                const password = document.getElementById('password');
-                                const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-                                password.setAttribute('type', type);
-                                this.classList.toggle('fa-eye');
-                                this.classList.toggle('fa-eye-slash');
-                            });
-                        </script>
+                        <i class="fas fa-eye-slash" id="togglePassword"></i>
                     </div>
                     <button type="submit">Login</button>
                 </form>
@@ -69,6 +52,85 @@
         <p>&copy; 2024 Flavor-Junction-FE. All rights reserved.</p>
     </footer>
 
-    <script type="module" src="./assets/API/auth.js"></script>
+    <script>
+        // Check if the user is already logged in
+        window.onload = function() {
+            const token = localStorage.getItem('token');
+            const profileIconContainer = document.getElementById('profile-icon-container');
+            const loginLinkContainer = document.getElementById('login-link-container');
+            
+            if (token) {
+                // If token exists, hide login link and show profile icon
+                loginLinkContainer.style.display = 'none';
+                profileIconContainer.style.display = 'inline-block';
+
+                // Optionally set the profile icon from localStorage user data
+                const user = JSON.parse(localStorage.getItem('user'));
+                const profileIcon = document.getElementById('profile-icon');
+                const profileLink = document.getElementById('profile-link');
+                
+                // Set profile picture or default image
+                profileIcon.src = user.profilePicture || 'default-avatar.png'; // Replace 'default-avatar.png' with your actual default image
+                profileLink.href = 'profile.html';  // Link to user profile page
+            }
+        };
+
+        // Toggle password visibility
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const password = document.getElementById('password');
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
+        });
+
+        // Handle form submission
+        document.getElementById('login-form').addEventListener('submit', async (event) => {
+            event.preventDefault(); // Prevent the default form submission
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Send a POST request to the backend for authentication
+            try {
+                const response = await fetch('http://localhost:3001/api/auth/login', { // Ensure this matches your backend
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Store token and user details in localStorage
+                    localStorage.setItem('token', data.token);
+                    localStorage.setItem('user', JSON.stringify(data.user));
+
+                    // Set the profile icon (if available)
+                    const user = data.user;
+                    const profileIcon = document.getElementById('profile-icon');
+                    const profileLink = document.getElementById('profile-link');
+                    const profileIconContainer = document.getElementById('profile-icon-container');
+                    
+                    // Assuming the user has a profile picture URL stored
+                    profileIcon.src = user.profilePicture || 'default-avatar.png'; // Replace with actual logic
+                    profileLink.href = 'profile.html';  // Profile page link
+                    profileIconContainer.style.display = 'inline-block'; // Show profile icon
+
+                    // Redirect to home page
+                    window.location.href = 'index.html'; // Adjust path if necessary
+                } else {
+                    alert(data.message || 'Login failed');
+                }
+            } catch (error) {
+                console.error('Error during login:', error);
+                alert('An error occurred, please try again later.');
+            }
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 </body>
-</html> 
+</html>

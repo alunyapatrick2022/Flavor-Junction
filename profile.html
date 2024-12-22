@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile | Flavor-Junction</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">Flavor-Junction</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="booking.html">Bookings</a></li>
+                <li><a href="javascript:void(0)" id="logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="profile-section">
+            <h2>User Profile</h2>
+            <div id="user-info">
+                <p>Email: <span id="email"></span></p>
+                <p>Phone: <span id="phone"></span></p>
+            </div>
+            <h3>Your Bookings</h3>
+            <div id="bookings-list"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Flavor-Junction. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const token = localStorage.getItem('token');
+        if (!token) {
+            alert('You need to be logged in to view your profile.');
+            window.location.href = './login.html'; // Redirect to login page if not logged in
+        }
+
+        // Fetch user profile information
+        async function getUserProfile() {
+            const response = await fetch('http://localhost:3001/user/profile', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            const userData = await response.json();
+            if (response.ok) {
+                document.getElementById('email').textContent = userData.email;
+                document.getElementById('phone').textContent = userData.phone;
+            } else {
+                alert('Error fetching user profile');
+            }
+        }
+
+        // Fetch user bookings
+        async function getUserBookings() {
+            const response = await fetch('http://localhost:3001/user/bookings', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            const bookings = await response.json();
+            const bookingsList = document.getElementById('bookings-list');
+
+            if (bookings.length > 0) {
+                bookings.forEach(booking => {
+                    const bookingElement = document.createElement('div');
+                    bookingElement.innerHTML = `
+                        <p>Booking Type: ${booking.booking_type}</p>
+                        <p>Date: ${booking.date}</p>
+                        <p>Status: ${booking.status}</p>
+                    `;
+                    bookingsList.appendChild(bookingElement);
+                });
+            } else {
+                bookingsList.innerHTML = '<p>No bookings found.</p>';
+            }
+        }
+
+        // Logout functionality
+        document.getElementById('logout').addEventListener('click', () => {
+            localStorage.removeItem('token');  // Remove token from localStorage
+            alert('You have logged out successfully');
+            window.location.href = './login.html'; // Redirect to login page after logout
+        });
+
+        // Load profile and bookings when the page is loaded
+        getUserProfile();
+        getUserBookings();
+    </script>
+</body>
+
+</html>

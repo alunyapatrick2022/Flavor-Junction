@@ -6,16 +6,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Menu | Flavor Junction</title>
 
-    
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://kit.fontawesome.com/a076d05399.css">
 
-    
-    <link rel="stylesheet" href="menu-style.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        nav.navbar {
+            background: linear-gradient(90deg, #0A7075, #0C969C);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar .navbar-brand {
+            color: #ffffff !important;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .navbar .navbar-nav .nav-item .nav-link {
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .navbar-nav .nav-item .nav-link:hover {
+            color: #f39c12;
+        }
+
+        .navbar .btn-warning {
+            background-color: #f39c12;
+            color: #ffffff;
+            border: none;
+        }
+
+        .navbar .btn-warning:hover {
+            background-color: #e67e22;
+            color: #ffffff;
+        }
+
+        .hero-section {
+            background: url('images/img2.png') no-repeat center center/cover;
+            height: 50vh;
+            position: relative;
+            color: #fff;
+        }
+
+        .hero-section .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            transform: translateY(-50%);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .menu-section {
+            padding: 50px 20px;
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .menu-item h4 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .menu-item p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .price {
+            display: block;
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: #f39c12;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #333;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
 </head>
 
 <body>
-    
+
     <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="index.html">Flavor Junction</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
@@ -39,11 +133,18 @@
                 <li class="nav-item">
                     <a class="btn btn-warning" href="#">Order Online</a>
                 </li>
+                <li class="nav-item">
+                    <!-- Profile Icon/Link -->
+                    <a class="profile-icon" href="#" id="profileLink" style="display: none;">
+                        <i class="fas fa-user-circle"></i> Profile
+                    </a>
+                    <!-- Login/Logout Link -->
+                    <a class="nav-link" href="#" id="loginLogoutLink">Login</a>
+                </li>
             </ul>
         </div>
     </nav>
 
-    
     <section class="hero-section">
         <div class="hero-content">
             <h1>Our Menu</h1>
@@ -51,13 +152,11 @@
         </div>
     </section>
 
-    
     <section class="menu-section">
         <div class="container">
             <h2>Delicious Selections</h2>
 
             <div class="row">
-                
                 <div class="col-md-4 menu-item">
                     <img src="images/appetizer.jpg" alt="Appetizers">
                     <h4>Appetizers</h4>
@@ -65,7 +164,6 @@
                     <span class="price">Starting at $4.99</span>
                 </div>
 
-                
                 <div class="col-md-4 menu-item">
                     <img src="images/main-course.jpg" alt="Main Courses">
                     <h4>Main Courses</h4>
@@ -73,7 +171,6 @@
                     <span class="price">Starting at $12.99</span>
                 </div>
 
-                
                 <div class="col-md-4 menu-item">
                     <img src="images/dessert.jpg" alt="Desserts">
                     <h4>Desserts</h4>
@@ -83,7 +180,6 @@
             </div>
 
             <div class="row">
-                
                 <div class="col-md-4 menu-item">
                     <img src="images/beverages.jpg" alt="Beverages">
                     <h4>Beverages</h4>
@@ -91,7 +187,6 @@
                     <span class="price">Starting at $2.99</span>
                 </div>
 
-                
                 <div class="col-md-4 menu-item">
                     <img src="images/vegan.jpg" alt="Vegan Options">
                     <h4>Vegan Options</h4>
@@ -99,7 +194,6 @@
                     <span class="price">Starting at $9.99</span>
                 </div>
 
-                
                 <div class="col-md-4 menu-item">
                     <img src="images/specials.jpg" alt="Seasonal Specials">
                     <h4>Seasonal Specials</h4>
@@ -110,17 +204,40 @@
         </div>
     </section>
 
-    
     <footer>
         <p>&copy; 2024 Flavor Junction. All Rights Reserved.</p>
     </footer>
 
-    
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <!-- CUstom JavaScript to handle token authorization for users -->
-    <script type="module" src="./assets/API/auth.js"></script>
+    <!-- Custom JavaScript to handle token authorization for users -->
+    <script type="module">
+        document.addEventListener("DOMContentLoaded", () => {
+            const isLoggedIn = false; // Replace with actual login logic
+            const profileLink = document.getElementById("profileLink");
+            const loginLogoutLink = document.getElementById("loginLogoutLink");
+
+            // Toggle Login/Logout and Profile visibility
+            if (isLoggedIn) {
+                profileLink.style.display = 'inline';
+                loginLogoutLink.textContent = 'Logout';
+            } else {
+                profileLink.style.display = 'none';
+                loginLogoutLink.textContent = 'Login';
+            }
+
+            loginLogoutLink.addEventListener("click", () => {
+                if (isLoggedIn) {
+                    // Logic to log out (clear session, etc.)
+                    alert("Logged out!");
+                    window.location.href = "index.html"; // Redirect after logout
+                } else {
+                    window.location.href = "login.html"; // Redirect to login page
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

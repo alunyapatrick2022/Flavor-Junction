@@ -5,19 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Flavor Junction</title>
-
-    
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://kit.fontawesome.com/a076d05399.css">
-
-    
     <style>
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        
         nav.navbar {
             background: linear-gradient(90deg, #0A7075, #0C969C);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -49,7 +44,6 @@
             color: #ffffff;
         }
 
-        
         .hero-section {
             background: url('images/img2.png') no-repeat center center/cover;
             height: 50vh;
@@ -69,7 +63,6 @@
             font-weight: bold;
         }
 
-        
         .about-content {
             padding: 50px 20px;
         }
@@ -85,7 +78,6 @@
             line-height: 1.8;
         }
 
-        
         footer {
             background-color: #333;
             color: #ffffff;
@@ -100,14 +92,14 @@
 </head>
 
 <body>
-
-    
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="index.html">Flavor Junction</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
@@ -117,19 +109,27 @@
                     <a class="nav-link" href="about.html">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Menu</a>
+                    <a class="nav-link" href="menu.html">Menu</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Book</a>
+                    <a class="nav-link" href="booking.html" id="bookingsLink">Bookings</a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-warning" href="#">Order Online</a>
+                    <a class="btn btn-warning" href="#" id="orderOnlineBtn">Order Online</a>
+                </li>
+                <li class="nav-item">
+                    <!-- Profile Icon/Link -->
+                    <a class="profile-icon" href="profile.html" id="profileLink" style="display: none;">
+                        <i class="fas fa-user-circle"></i> Profile
+                    </a>
+                    <!-- Login/Logout Link -->
+                    <a class="nav-link" href="login.html" id="loginLogoutLink">Login</a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    
+    <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-content">
             <h1>About Us</h1>
@@ -137,7 +137,7 @@
         </div>
     </section>
 
-    
+    <!-- About Content -->
     <section class="about-content">
         <div class="container">
             <div class="row">
@@ -170,16 +170,62 @@
         </div>
     </section>
 
-
+    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Flavor Junction. All Rights Reserved.</p>
     </footer>
 
-    
+    <!-- Scripts -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const isLoggedIn = false; // Replace with actual login logic
+            const bookingsLink = document.getElementById("bookingsLink");
+            const orderOnlineBtn = document.getElementById("orderOnlineBtn");
+            const profileLink = document.getElementById("profileLink");
+            const loginLogoutLink = document.getElementById("loginLogoutLink");
+
+            // Toggle Login/Logout and Profile visibility
+            if (isLoggedIn) {
+                profileLink.style.display = 'inline';
+                loginLogoutLink.textContent = 'Logout';
+            } else {
+                profileLink.style.display = 'none';
+                loginLogoutLink.textContent = 'Login';
+            }
+
+            bookingsLink.addEventListener("click", (e) => {
+                if (!isLoggedIn) {
+                    e.preventDefault();
+                    alert("Please log in to access bookings.");
+                    window.location.href = "login.html";
+                } else {
+                    window.location.href = "bookings.html";
+                }
+            });
+
+            orderOnlineBtn.addEventListener("click", (e) => {
+                if (!isLoggedIn) {
+                    e.preventDefault();
+                    alert("Please log in to order online.");
+                    window.location.href = "login.html";
+                } else {
+                    window.location.href = "order-online.html";
+                }
+            });
+
+            loginLogoutLink.addEventListener("click", () => {
+                if (isLoggedIn) {
+                    // Logic to log out (clear session, etc.)
+                    alert("Logged out!");
+                    window.location.href = "index.html"; // Redirect after logout
+                } else {
+                    window.location.href = "login.html"; // Redirect to login page
+                }
+            });
+        });
+    </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <!-- CUstom JavaScript to handle token authorization for users -->
     <script type="module" src="./assets/API/auth.js"></script>
 </body>
 

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Page | El Classico</title>
+    <link rel="stylesheet" href="./assets/css/booking.css">
+</head>
+
+<body>
+
+    <div class="booking-container">
+        <header>
+            <div class="header">
+                <div class="logo">
+                    <img src="./assets/images/booking-page-hero-banner.avif" alt="El Classico" height="100">
+                    <h3>El Classico</h3>
+                </div>
+                <nav>
+                    <ul>
+                        <!-- Check if the user is logged in and display appropriate links -->
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="profile.html" id="profileLink" style="display: none;">Profile</a></li>
+                        <li><a href="login.html" id="loginLogoutLink">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section class="booking-form-section">
+            <div class="booking-details">
+                <h1>Complete Your Booking</h1>
+
+                <!-- Booking Type Selector -->
+                <div class="booking-type">
+                    <label for="booking-type">Choose Your Booking Type:</label>
+                    <select id="booking-type" name="booking-type" onchange="toggleBookingForm()">
+                        <option value="table">Book a Table</option>
+                        <option value="room">Reserve a Room</option>
+                    </select>
+                </div>
+
+                <!-- Book Table Form -->
+                <form id="table-form" class="booking-form" action="/api/book-table" method="POST" style="display: none;">
+                    <div class="form-group">
+                        <label for="full-name-table">Full Name</label>
+                        <input type="text" id="full-name-table" name="full-name-table" required placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email-table">Email Address</label>
+                        <input type="email" id="email-table" name="email-table" required placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone-table">Phone Number</label>
+                        <input type="tel" id="phone-table" name="phone-table" required placeholder="Enter your phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="reservation-date">Reservation Date</label>
+                        <input type="date" id="reservation-date" name="reservation-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reservation-time">Reservation Time</label>
+                        <input type="time" id="reservation-time" name="reservation-time" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="number-of-people">Number of People</label>
+                        <select id="number-of-people" name="number-of-people" required>
+                            <option value="2">2 People</option>
+                            <option value="4">4 People</option>
+                            <option value="6">6 People</option>
+                            <option value="8">8 People</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="submit-btn">Confirm Table Reservation</button>
+                </form>
+
+                <!-- Room Booking Form -->
+                <form id="room-form" class="booking-form" action="/api/book-room" method="POST" style="display: block;">
+                    <div class="form-group">
+                        <label for="full-name">Full Name</label>
+                        <input type="text" id="full-name" name="full-name" required placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="check-in-date">Check-in Date</label>
+                        <input type="date" id="check-in-date" name="check-in-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="check-out-date">Check-out Date</label>
+                        <input type="date" id="check-out-date" name="check-out-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="room-type">Room Type</label>
+                        <select id="room-type" name="room-type" required>
+                            <option value="single">Single Room</option>
+                            <option value="double">Double Room</option>
+                            <option value="suite">Suite</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">Number of Guests</label>
+                        <select id="guests" name="guests" required>
+                            <option value="1">1 Adult</option>
+                            <option value="2">2 Adults</option>
+                            <option value="3">3 Adults</option>
+                            <option value="4">4 Adults</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="submit-btn">Confirm Room Booking</button>
+                </form>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <p>&copy; 2024 El Classico. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript to handle form toggling -->
+    <script>
+        function toggleBookingForm() {
+            var bookingType = document.getElementById('booking-type').value;
+            if (bookingType === 'room') {
+                document.getElementById('room-form').style.display = 'block';
+                document.getElementById('table-form').style.display = 'none';
+            } else {
+                document.getElementById('room-form').style.display = 'none';
+                document.getElementById('table-form').style.display = 'block';
+            }
+        }
+    </script>
+
+    <!-- Custom JavaScript to handle token authorization for users -->
+    <script type="module">
+        document.addEventListener("DOMContentLoaded", () => {
+            const isLoggedIn = false; // Replace with actual login logic
+            const profileLink = document.getElementById("profileLink");
+            const loginLogoutLink = document.getElementById("loginLogoutLink");
+
+            // Toggle Login/Logout and Profile visibility
+            if (isLoggedIn) {
+                profileLink.style.display = 'inline';
+                loginLogoutLink.textContent = 'Logout';
+            } else {
+                profileLink.style.display = 'none';
+                loginLogoutLink.textContent = 'Login';
+            }
+
+            loginLogoutLink.addEventListener("click", () => {
+                if (isLoggedIn) {
+                    // Logic to log out (clear session, etc.)
+                    alert("Logged out!");
+                    window.location.href = "index.html"; // Redirect after logout
+                } else {
+                    window.location.href = "login.html"; // Redirect to login page
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

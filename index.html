@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
     <title>Flavor Junction</title>
     <style>
         body {
@@ -53,41 +51,6 @@
             border-radius: 5px;
         }
 
-        .carousel-control-prev,
-        .carousel-control-next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(11, 237, 68, 0.6);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 100;
-        }
-
-        .carousel-control-prev {
-            left: 20px;
-        }
-
-        .carousel-control-next {
-            right: 20px;
-        }
-
-        .carousel-control-prev:hover,
-        .carousel-control-next:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        .carousel-control-prev .carousel-control-prev-icon,
-        .carousel-control-next .carousel-control-next-icon {
-            background-size: 100%;
-            width: 20px;
-            height: 20px;
-        }
-
         footer {
             background-color: #333;
             color: #ffffff;
@@ -128,36 +91,33 @@
             color: #f39c12;
         }
 
-        .navbar .btn-warning {
+        .navbar .navbar-nav .btn-warning {
             background-color: #f39c12;
             color: #ffffff;
             border: none;
         }
 
-        .navbar .btn-warning:hover {
+        .navbar .navbar-nav .btn-warning:hover {
             background-color: #e67e22;
             color: #ffffff;
         }
 
-        .dropdown-menu {
-            background-color: #0C969C;
+        .navbar .profile-icon {
+            color: #ffffff;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 1.2rem;
         }
 
-        .dropdown-menu .dropdown-item {
-            color: #ffffff;
-        }
-
-        .dropdown-menu .dropdown-item:hover {
-            background-color: #f39c12;
-            color: #ffffff;
+        .navbar .profile-icon:hover {
+            color: #f39c12;
         }
     </style>
 </head>
 
 <body>
-
     <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="#">Flavor Junction</a>
+        <a class="navbar-brand" href="index.html">Flavor Junction</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -166,44 +126,27 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="menuDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">Menu</a>
-                    <div class="dropdown-menu" aria-labelledby="menuDropdown">
-                        <a class="dropdown-item" href="#">Appetizers</a>
-                        <a class="dropdown-item" href="#">Main Courses</a>
-                        <a class="dropdown-item" href="#">Desserts</a>
-                        <a class="dropdown-item" href="#">Beverages</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Vegan Options</a>
-                        <a class="dropdown-item" href="#">Seasonal Specials</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="./about.html" id="aboutDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">About</a>
-                    <div class="dropdown-menu" aria-labelledby="aboutDropdown">
-                        <a class="dropdown-item" href="#">Our Story</a>
-                        <a class="dropdown-item" href="#">Team</a>
-                        <a class="dropdown-item" href="#">Careers</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Vision & Mission</a>
-                        <a class="dropdown-item" href="#">Community Engagement</a>
-                        <a class="dropdown-item" href="#">Awards & Achievements</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="bookDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">Book</a>
-                    <div class="dropdown-menu" aria-labelledby="bookDropdown">
-                        <a class="dropdown-item" href="book-table.html">Book a Table</a>
-                        <a class="dropdown-item" href="reserve-room.html">Reserve a Room</a>
-                    </div>
+                    <a class="nav-link" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-warning" href="#">Order Online</a>
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="menu.html">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="booking.html" id="bookingsLink">Bookings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-warning" href="#" id="orderOnlineBtn">Order Online</a>
+                </li>
+                <li class="nav-item">
+                    <!-- Profile Icon/Link -->
+                    <a class="profile-icon" href="profile.html" id="profileLink" style="display: none;">
+                        <i class="fas fa-user-circle"></i> Profile
+                    </a>
+                    <!-- Login/Logout Link -->
+                    <a class="nav-link" href="login.html" id="loginLogoutLink">Login</a>
                 </li>
             </ul>
         </div>
@@ -228,7 +171,7 @@
 
         <div class="hero-content">
             <h1 class="display-4">Flavor Junction</h1>
-            <p class="lead">Things are simple yet essential, offering comfort and wisdom in the face of challenges.</p>
+            <p class="lead">Delighting your taste buds with unforgettable flavors.</p>
             <a href="#" class="btn btn-warning btn-lg mt-3">Order Now</a>
         </div>
     </header>
@@ -265,8 +208,36 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <!-- CUstom JavaScript to handle token authorization for users -->
-    <script type="module" src="./assets/API/auth.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const token = localStorage.getItem('token');
+            const bookingsLink = document.getElementById("bookingsLink");
+            const orderOnlineBtn = document.getElementById("orderOnlineBtn");
+            const profileLink = document.getElementById("profileLink");
+            const loginLogoutLink = document.getElementById("loginLogoutLink");
+
+            // Handle login/logout links and profile visibility
+            if (token) {
+                profileLink.style.display = "inline-block";
+                loginLogoutLink.textContent = "Logout";
+                bookingsLink.setAttribute("href", "bookings.html"); // Link to bookings page
+                orderOnlineBtn.setAttribute("href", "order-online.html"); // Link to order page
+            } else {
+                profileLink.style.display = "none";
+                loginLogoutLink.textContent = "Login";
+                bookingsLink.setAttribute("href", "login.html");
+                orderOnlineBtn.setAttribute("href", "login.html");
+            }
+
+            // Handle logout action
+            loginLogoutLink.addEventListener("click", () => {
+                if (token) {
+                    localStorage.removeItem('token'); // Remove token on logout
+                    window.location.reload(); // Reload the page
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
