@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Page | El Classico</title>
+    <link rel="stylesheet" href="./assets/css/booking.css">
+</head>
+
+<body>
+
+    <div class="booking-container">
+        <header>
+            <div class="header">
+                <div class="logo">
+                    <img src="./assets/images/elclassico company logo.avif" alt="El Classico" height="100">
+                    <h3>El Classico</h3>
+                </div>
+                <nav>
+                    <ul>
+                        <!-- Check if the user is logged in and display appropriate links -->
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="profile.html" id="profileLink" style="display: none;">Profile</a></li>
+                        <li><a href="login.html" id="loginLogoutLink">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section class="booking-form-section">
+            <div class="booking-details">
+                <h1>Complete Your Booking</h1>
+
+                <!-- Book Table Form -->
+                <form id="table-form" class="booking-form" style="display: block;">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Reservation Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Reservation Time</label>
+                        <input type="time" id="time" name="time" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="number-of-people">Number of People</label>
+                        <select id="number-of-people" name="number-of-people" required>
+                            <option value="2">2</option>
+                            <option value="4">4</option>
+                            <option value="6">6</option>
+                            <option value="8">8</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="submit-btn">Confirm Table Reservation</button>
+                </form>
+
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <p>&copy; 2024 El Classico. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Custom JavaScript to handle token authorization for users -->
+    <script type="module">
+        document.addEventListener("DOMContentLoaded", () => {
+            const isLoggedIn = false; // Replace with actual login logic
+            const profileLink = document.getElementById("profileLink");
+            const loginLogoutLink = document.getElementById("loginLogoutLink");
+
+            // Toggle Login/Logout and Profile visibility
+            if (isLoggedIn) {
+                profileLink.style.display = 'inline';
+                loginLogoutLink.textContent = 'Logout';
+            } else {
+                profileLink.style.display = 'none';
+                loginLogoutLink.textContent = 'Login';
+            }
+
+            loginLogoutLink.addEventListener("click", () => {
+                if (isLoggedIn) {
+                    // Logic to log out (clear session, etc.)
+                    alert("Logged out!");
+                    window.location.href = "index.html"; // Redirect after logout
+                } else {
+                    window.location.href = "login.html"; // Redirect to login page
+                }
+            });
+        });
+    </script>
+
+    <script src="./assets/API/table_booking.js"></script>
+</body>
+
+</html>

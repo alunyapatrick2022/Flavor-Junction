@@ -14,7 +14,7 @@
         <header>
             <div class="header">
                 <div class="logo">
-                    <img src="./assets/images/booking-page-hero-banner.avif" alt="El Classico" height="100">
+                    <img src="./assets/images/elclassico company logo.avif" alt="El Classico" height="100">
                     <h3>El Classico</h3>
                 </div>
                 <nav>
@@ -33,56 +33,12 @@
 
         <section class="booking-form-section">
             <div class="booking-details">
-                <h1>Complete Your Booking</h1>
-
-                <!-- Booking Type Selector -->
-                <div class="booking-type">
-                    <label for="booking-type">Choose Your Booking Type:</label>
-                    <select id="booking-type" name="booking-type" onchange="toggleBookingForm()">
-                        <option value="table">Book a Table</option>
-                        <option value="room">Reserve a Room</option>
-                    </select>
-                </div>
-
-                <!-- Book Table Form -->
-                <form id="table-form" class="booking-form" action="/api/book-table" method="POST" style="display: none;">
-                    <div class="form-group">
-                        <label for="full-name-table">Full Name</label>
-                        <input type="text" id="full-name-table" name="full-name-table" required placeholder="Enter your full name">
-                    </div>
-                    <div class="form-group">
-                        <label for="email-table">Email Address</label>
-                        <input type="email" id="email-table" name="email-table" required placeholder="Enter your email">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone-table">Phone Number</label>
-                        <input type="tel" id="phone-table" name="phone-table" required placeholder="Enter your phone number">
-                    </div>
-                    <div class="form-group">
-                        <label for="reservation-date">Reservation Date</label>
-                        <input type="date" id="reservation-date" name="reservation-date" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="reservation-time">Reservation Time</label>
-                        <input type="time" id="reservation-time" name="reservation-time" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="number-of-people">Number of People</label>
-                        <select id="number-of-people" name="number-of-people" required>
-                            <option value="2">2 People</option>
-                            <option value="4">4 People</option>
-                            <option value="6">6 People</option>
-                            <option value="8">8 People</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="submit-btn">Confirm Table Reservation</button>
-                </form>
-
+                <h1>Complete Your Room Booking</h1>
                 <!-- Room Booking Form -->
-                <form id="room-form" class="booking-form" action="/api/book-room" method="POST" style="display: block;">
+                <form id="room-form" class="booking-form" style="display: block;">
                     <div class="form-group">
-                        <label for="full-name">Full Name</label>
-                        <input type="text" id="full-name" name="full-name" required placeholder="Enter your full name">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your name">
                     </div>
                     <div class="form-group">
                         <label for="email">Email Address</label>
@@ -111,10 +67,10 @@
                     <div class="form-group">
                         <label for="guests">Number of Guests</label>
                         <select id="guests" name="guests" required>
-                            <option value="1">1 Adult</option>
-                            <option value="2">2 Adults</option>
-                            <option value="3">3 Adults</option>
-                            <option value="4">4 Adults</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
                         </select>
                     </div>
                     <button type="submit" class="submit-btn">Confirm Room Booking</button>
@@ -128,20 +84,6 @@
             </div>
         </footer>
     </div>
-
-    <!-- JavaScript to handle form toggling -->
-    <script>
-        function toggleBookingForm() {
-            var bookingType = document.getElementById('booking-type').value;
-            if (bookingType === 'room') {
-                document.getElementById('room-form').style.display = 'block';
-                document.getElementById('table-form').style.display = 'none';
-            } else {
-                document.getElementById('room-form').style.display = 'none';
-                document.getElementById('table-form').style.display = 'block';
-            }
-        }
-    </script>
 
     <!-- Custom JavaScript to handle token authorization for users -->
     <script type="module">
@@ -171,6 +113,7 @@
         });
     </script>
 
+    <script src="./assets/API/room_booking.js"></script>
 </body>
 
 </html>

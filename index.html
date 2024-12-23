@@ -135,7 +135,10 @@
                     <a class="nav-link" href="menu.html">Menu</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="booking.html" id="bookingsLink">Bookings</a>
+                    <a class="nav-link" href="./room-booking.html" id="bookingsLink">Book a Room</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./table-booking.html" id="bookingsLink">Book a Table</a>
                 </li>
                 <li class="nav-item">
                     <a class="btn btn-warning" href="#" id="orderOnlineBtn">Order Online</a>
@@ -220,7 +223,7 @@
             if (token) {
                 profileLink.style.display = "inline-block";
                 loginLogoutLink.textContent = "Logout";
-                bookingsLink.setAttribute("href", "bookings.html"); // Link to bookings page
+                // bookingsLink.setAttribute("href", "bookings.html"); // Link to bookings page
                 orderOnlineBtn.setAttribute("href", "order-online.html"); // Link to order page
             } else {
                 profileLink.style.display = "none";
