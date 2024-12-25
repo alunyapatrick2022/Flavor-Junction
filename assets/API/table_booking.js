@@ -13,7 +13,7 @@ if (!token) {
     const  number_of_people = document.getElementById('number-of-people').value;
 
         try {
-            const response = await fetch(`http://localhost:3001/api/table-booking`, {
+            const response = await fetch(`https://flavor-junction-be.onrender.com/api/table-booking`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -14,7 +14,7 @@ if (!token) {
     const    guests = document.getElementById('guests').value;
 
     try {
-        const response = await fetch(`http://localhost:3001/api/room-booking`, {
+        const response = await fetch(`https://flavor-junction-be.onrender.com/api/room-booking`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
