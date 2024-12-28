@@ -1,4 +1,8 @@
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 nav.navbar {
     background: linear-gradient(90deg, #0A7075, #0C969C);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -48,6 +52,14 @@ nav.navbar {
     justify-items: center;
     align-items: baseline;
     padding: 30px 40px;
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+        grid-template-rows: 2fr;
+        row-gap: 10px;
+        padding: 10px 20px;
+        overflow: hidden;
+    }
 }
 
 .admin-stats-cards h2{
@@ -64,7 +76,7 @@ nav.navbar {
 
 .total-users, 
 .total-bookings {
-    width: 300px;
+    width: 200px;
     background: #4CAF50;
     text-align: center;
     border-radius: 10px;
