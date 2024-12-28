@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flavor-Junction | Users Table Booking Page</title>
+    <link rel="stylesheet" type="text/css" href="./css/admin.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/userTableBookings.css" />
+</head>
+<body>
+   <nav class="header-nav">
+    <header class="header">
+        <div class="header-container">
+            <div class="header-title">
+                <h1 id="admin-name"></h1>
+            </div>
+            <div class="nav-item">
+                <ul class="nav-links">
+                    <li>
+                        <a href="admin.htm">Admin</a>
+                    </li>
+                    <li>
+                        <a href="users_room_bookings.htm">Users Room Bookings</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+   </nav>
+   <main>
+    <section class="users_room_bookings">
+        <table class="table">
+            <tb>
+                <tr>
+                    <th>Booking ID</th>
+                    <th>User ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Reservation Date</th>
+                    <th>Time</th>
+                    <th>Expected Guest</th>
+                    <th>Action</th>
+                </tr>
+                <tr>
+                    <td id="booking-id"></td>
+                    <td id="user-id"></td>
+                    <td id="name"></td>
+                    <td id="email"></td>
+                    <td id="phone"></td>
+                    <td id="date" name="date"></td>
+                    <td id="time" name="time"></td>
+                    <td id="guests"></td>
+                </tr>
+            </tb>
+        </table>
+    </section>
+   </main>
+   <script src="./adminAPIS/usersTableBooking.js"></script>
+</body>
+</html>

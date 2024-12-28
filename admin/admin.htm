@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flavor-Junction | Admin Page</title>
+    <link rel="stylesheet" type="text/css" href="./css/admin.css"/>
+</head>
+<body>
+   <nav class="header-nav">
+    <header class="header">
+        <div class="header-container">
+            <div class="header-title">
+                <h1 id="admin-name"></h1>
+            </div>
+            <div class="nav-item">
+                <ul class="nav-links">
+                    <li>
+                        <a href="users_table_bookings.htm">Users Table Bookings</a>
+                    </li>
+                    <li>
+                        <a href="users_room_bookings.htm">Users Room Bookings</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+   </nav>
+   <main>
+    <section id="admin-stats">
+        <div class="admin-stats-container">
+            <h1>Admin Stats</h1>
+            <div class="admin-stats-cards">
+                <div class="total-users">
+                    <h2>Total Users</h2>
+                    <p id="total-users">
+                        <Loading id="Loading">Loading...</Loading>
+                    </p>
+                </div>
+                <div class="total-bookings">
+                    <h2>Total bookings made</h2>
+                    <p id="total-bookings">
+                        <Loading id="Loading">Loading...</Loading>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+   </main>
+</body>
+</html>

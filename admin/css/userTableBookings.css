@@ -1,0 +1,112 @@
+
+
+.header-nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.header-nav, .room-table th, .room-table td {
+    border: 1px solid #ddd;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header-title h1 {
+    margin: 0;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+main {
+    max-width: 1440px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.users_room_bookings {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .room-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table th {
+    background-color: #f2f2f2;
+}
+
+.table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table td {
+    color: #333;
+}
+
+.table th {
+    color: #333;
+    font-weight: bold;
+}
+
+.table td#action {
+    color: #007bff;
+    cursor: pointer;
+}
+
+.table td#action:hover {
+    text-decoration: underline;
+}
+
+.action-btn {
+    background-color: #4CAF50; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px; 
+    margin: 4px 2px; 
+    cursor: pointer;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flavor-Junction | Admin Login Page</title>
+    <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="./css/adminLogin.css"/>
+</head>
+<body>
+    <main>
+        <section class="auth-section">
+            <div class="auth-container">
+                <h1 style="text-align: center;">Admin</h1>
+                <form id="login-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    <button type="submit">Login</button>
+                    <p id="resultText" style="color: green"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Flavor-Junction-FE. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="./adminAPIS/adminLoginauth.js"></script>
+</body>
+</html>

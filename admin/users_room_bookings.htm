@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flavor-Junction | Users Room Booking Page</title>
+    <link rel="stylesheet" type="text/css" href="./css/admin.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/usersRoomBookings.css" />
+</head>
+<body>
+   <nav class="header-nav">
+    <header class="header">
+        <div class="header-container">
+            <div class="header-title">
+                <h1 id="admin-name"></h1>
+            </div>
+            <div class="nav-item">
+                <ul class="nav-links">
+                    <li>
+                        <a href="admin.htm">Admin</a>
+                    </li>
+                    <li>
+                        <a href="users_table_bookings.htm">Users Table Bookings</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+   </nav>
+   <main>
+    <section class="users_room_bookings">
+        <table class="room">
+            <tb>
+                <tr>
+                    <th>Booking ID</th>
+                    <th>User ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Check In Date</th>
+                    <th>Check Out Date</th>
+                    <th>Room Type</th>
+                    <th>Expected Guests</th>
+                    <th>Action</th>
+                </tr>
+                <tr>
+                    <td id="booking-id"></td>
+                    <td id="user-id"></td>
+                    <td id="name"></td>
+                    <td id="email"></td>
+                    <td id="phone"></td>
+                    <td id="date"></td>
+                    <td id="date"></td>
+                    <td id="room-type"></td>
+                    <td id="room-type"></td>
+                    <td id="guests"></td>
+                    <!-- <td class="action-btn"></td> -->
+                </tr>
+            </tb>
+        </table>
+        <p id="error-message"></p>
+    </section>
+   </main>
+    <script src="./adminAPIS/usersRoomBooking.js"></script>
+</body>
+</html>

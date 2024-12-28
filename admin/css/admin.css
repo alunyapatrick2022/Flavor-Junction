@@ -1,0 +1,81 @@
+*{
+    overflow-x: hidden;
+}
+.header-nav {
+    background-color: #4CAF50;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.header-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: baseline;
+    justify-items: center;
+}
+
+.header-title h1{
+    color: aliceblue;
+    font-size: 2rem;
+}
+
+.nav-item li {
+    list-style: none;
+    display: inline-block;
+
+}
+
+.nav-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: baseline;
+    padding: 20px 40px;
+    background: #4CAF50;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links a{
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    background: transparent;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+.admin-stats-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+    justify-items: center;
+    align-items: baseline;
+    padding: 30px 40px;
+}
+
+.admin-stats-cards h2{
+    color: white;
+    font-size: 2rem;
+}
+
+.admin-stats-cards p{
+    font-weight: 700;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.total-users, 
+.total-bookings {
+    width: 300px;
+    background: #4CAF50;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
